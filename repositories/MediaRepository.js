@@ -3,7 +3,7 @@ import Repository, { baseUrl } from './Repository';
 class MediaRespository {
 
     async getBannersBySlug(payload) {
-        const endPoint = `banners?slug_in=${payload}`;
+        const endPoint = `banners?slug=${payload}`;
 
         const reponse = await Repository.get(`${baseUrl}/${endPoint}`)
             .then((response) => {
@@ -21,7 +21,7 @@ class MediaRespository {
     }
 
     async getPromotionsBySlug(payload) {
-        const endPoint = `promotions?slug_in=${payload}`;
+        const endPoint = `promotions?slug=${payload}`;
         const reponse = await Repository.get(`${baseUrl}/${endPoint}`)
             .then((response) => {
                 if (response.data) {

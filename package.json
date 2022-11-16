@@ -3,11 +3,10 @@
     "version": "2.2.1",
     "private": true,
     "author": "nouthemes",
-    "homepage": "https://themeforest.net/user/nouthemes",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start -p 3003"
+        "start": "next start"
     },
     "dependencies": {
         "antd": "^4.5.2",

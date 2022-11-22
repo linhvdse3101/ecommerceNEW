@@ -3,12 +3,12 @@ import Repository, { baseUrl } from './Repository';
 class MediaRespository {
 
     async getBannersBySlug(payload) {
-        const endPoint = `banners?slug=${payload}`;
-
+        // const endPoint = `banners?slug=${payload}`;
+        const endPoint = `banners?slug=${payload}&populate[0]=items&populate[1]=items.image`;
         const reponse = await Repository.get(`${baseUrl}/${endPoint}`)
             .then((response) => {
                 if (response.data) {
-                    return response.data[0].items;
+                    return response.data.data[0].attributes.items;
                 } else {
                     return null;
                 }
@@ -21,11 +21,11 @@ class MediaRespository {
     }
 
     async getPromotionsBySlug(payload) {
-        const endPoint = `promotions?slug=${payload}`;
+        const endPoint = `promotions?slug=${payload}&populate[0]=items&populate[1]=items.image`;
         const reponse = await Repository.get(`${baseUrl}/${endPoint}`)
             .then((response) => {
                 if (response.data) {
-                    return response.data[0].items;
+                    return response.data.data[0].attributes.items;
                 } else {
                     return null;
                 }

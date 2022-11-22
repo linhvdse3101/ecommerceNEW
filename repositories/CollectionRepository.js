@@ -4,7 +4,7 @@ class CollectionRepository {
 
     async getProductsByCollectionSlug(slug) {
         const reponse = await Repository.get(
-            `${baseUrl}/collections?slug=${slug}`
+            `${baseUrl}/collections?slug=${slug}&populate[0]=products&populate[1]=products.images`
         )
             .then((response) => {
                 if (response.data && response.data.length > 0) {

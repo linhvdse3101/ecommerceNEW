@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import NextArrow from '~/components/elements/carousel/NextArrow';
 import PrevArrow from '~/components/elements/carousel/PrevArrow';
 import Link from 'next/link';
 import MediaRepository from '~/repositories/MediaRepository';
-import { baseUrl } from '~/repositories/Repository';
+import { baseUrl, baseImageUrl } from '~/repositories/Repository';
 import { getItemBySlug } from '~/utilities/product-helper';
 import Promotion from '~/components/elements/media/Promotion';
 
@@ -27,8 +27,11 @@ const HomeDefaultBanner = () => {
             'home_fullwidth_promotions'
         );
         if (responseData) {
+            // setPromotion1(responseData[0])
+            // setPromotion2(responseData[1])
             setPromotion1(getItemBySlug(responseData, 'main_1'));
             setPromotion2(getItemBySlug(responseData, 'main_2'));
+
         }
     }
 
@@ -36,6 +39,7 @@ const HomeDefaultBanner = () => {
         getBannerItems();
         getPromotions();
     }, []);
+
 
     const carouselSetting = {
         dots: false,
@@ -52,17 +56,19 @@ const HomeDefaultBanner = () => {
     let mainCarouselView;
     if (bannerItems) {
         const carouseItems = bannerItems.map((item) => (
+
             <div className="slide-item" key={item.id}>
                 <Link href="/shop">
                     <a
                         className="ps-banner-item--default bg--cover"
                         style={{
-                            backgroundImage: `url(${baseUrl}${item.image.url})`,
+                            backgroundImage: `url(${baseImageUrl}${item.image.data.attributes.url})`,
                         }}
                     />
                 </Link>
             </div>
         ));
+
         mainCarouselView = (
             <Slider {...carouselSetting} className="ps-carousel">
                 {carouseItems}
@@ -76,11 +82,11 @@ const HomeDefaultBanner = () => {
                 <div className="ps-section__right">
                     <Promotion
                         link="/shop"
-                        image={promotion1 ? promotion1.image : null}
+                        image={promotion1 ? promotion1?.image?.data?.attributes : null}
                     />
                     <Promotion
                         link="/shop"
-                        image={promotion2 ? promotion2.image : null}
+                        image={promotion2 ? promotion2?.image?.data?.attributes : null}
                     />
                 </div>
             </div>

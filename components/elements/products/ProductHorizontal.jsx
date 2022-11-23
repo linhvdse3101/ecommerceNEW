@@ -9,15 +9,15 @@ const ProductHorizontal = ({ product }) => {
         <div className="ps-product--horizontal">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                    <a>{thumbnailImage(product)}</a>
+                    <a>{thumbnailImage(product?.attributes)}</a>
                 </Link>
             </div>
             <div className="ps-product__content">
-                {title(product)}
+                {title(product.attributes, product.id)}
                 <div className="ps-product__rating">
                     <Rating />
                 </div>
-                {price(product)}
+                {price(product.attributes)}
             </div>
         </div>
     );

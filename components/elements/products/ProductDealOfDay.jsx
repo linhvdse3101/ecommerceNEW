@@ -13,7 +13,7 @@ const ProductDealOfDay = ({ product }) => {
         <div className="ps-product ps-product--inner">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                    <a>{thumbnailImage(product)}</a>
+                    <a>{thumbnailImage(product.attributes, 'thumbnail')}</a>
                 </Link>
                 {badge(product)}
                 <ModuleProductActions product={product} />
@@ -23,13 +23,13 @@ const ProductDealOfDay = ({ product }) => {
                     <a className="ps-product__vendor">Young Shop</a>
                 </Link>
                 <div className="ps-product__content">
-                    {StrapiProductPriceExpanded(product)}
-                    {title(product)}
+                    {StrapiProductPriceExpanded(product.attributes)}
+                    {title(product.attributes)}
                     <div className="ps-product__rating">
                         <Rating />
-                        <span>{product.ratingCount}</span>
+                        <span>{product.attributes.review}</span>
                     </div>
-                    <ModuleProductProgressbar product={product} />
+                    <ModuleProductProgressbar product={product.attributes} />
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@ const HomeAds = () => {
         const responseData = await MediaRepository.getPromotionsBySlug(
             'home_fullwidth_promotions'
         );
+        console.log('responseData', responseData);
         if (responseData) {
             setPromotion1(getItemBySlug(responseData, 'footer_1'));
             setPromotion2(getItemBySlug(responseData, 'footer_2'));
@@ -21,6 +22,7 @@ const HomeAds = () => {
     useEffect(() => {
         getPromotions();
     }, []);
+
     return (
         <div className="ps-home-ads">
             <div className="ps-container">
@@ -28,13 +30,13 @@ const HomeAds = () => {
                     <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion1 ? promotion1.image : null}
+                            image={promotion1 ? promotion1.image.data.attributes : null}
                         />
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion2 ? promotion2.image : null}
+                            image={promotion2 ? promotion2.image.data.attributes : null}
                         />
                     </div>
                 </div>

@@ -2,23 +2,23 @@ import Repository, { baseUrl, serializeQuery } from './Repository';
 
 class ProductRepository {
     async getRecords(params) {
-        const reponse = await Repository.get(
-            `${baseUrl}/products?${serializeQuery(params)}`
+        const response = await Repository.get(
+            `${baseUrl}/products?${serializeQuery(params)}&populate[0]=products.images`
         )
             .then((response) => {
-                return response.data;
+                return response.data.data;
             })
             .catch((error) => ({ error: JSON.stringify(error) }));
-        return reponse;
+        return response;
     }
 
     async getProducts(params) {
         const reponse = await Repository.get(
-            `${baseUrl}/products?${serializeQuery(params)}`
+            `${baseUrl}/products?${serializeQuery(params)}}&populate[0]=products.images`
         )
             .then((response) => {
-                if (response.data && response.data.length > 0) {
-                    return response.data;
+                if (response.data.data && response.data.data.length > 0) {
+                    return response.data.data;
                 } else {
                     return null;
                 }
@@ -43,7 +43,7 @@ class ProductRepository {
     async getProductCategories() {
         const reponse = await Repository.get(`${baseUrl}/product-categories`)
             .then((response) => {
-                return response.data;
+                return response.data.data;
             })
             .catch((error) => ({ error: JSON.stringify(error) }));
         return reponse;
@@ -52,7 +52,7 @@ class ProductRepository {
     async getTotalRecords() {
         const reponse = await Repository.get(`${baseUrl}/products/count`)
             .then((response) => {
-                return response.data;
+                return response.data.data;
             })
             .catch((error) => ({ error: JSON.stringify(error) }));
         return reponse;

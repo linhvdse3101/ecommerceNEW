@@ -8,7 +8,7 @@ const ProductCart = ({ product }) => {
         <div className="ps-product--cart">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                    <a>{thumbnailImage(product)}</a>
+                    <a>{thumbnailImage(product.attributes)}</a>
                 </Link>
             </div>
             <div className="ps-product__content">{title(product)}</div>

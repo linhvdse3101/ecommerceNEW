@@ -11,7 +11,7 @@ const ProductSimple = ({ product }) => {
         <div className="ps-product ps-product--simple">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                    <a>{thumbnailImage(product)}</a>
+                    <a>{thumbnailImage(product?.attributes)}</a>
                 </Link>
                 {badge(product)}
                 <ModuleProductActions product={product} />

@@ -31,7 +31,6 @@ export function getItemBySlug(banners, slug) {
     if (banners.length > 0) {
         const banner = banners.find((item) => item.slug === slug.toString());
         if (banner !== undefined) {
-            console.log("getItemBySlug", banner);
             return banner;
         } else {
             return null;

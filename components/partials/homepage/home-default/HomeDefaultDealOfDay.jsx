@@ -15,7 +15,6 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
         getProductsByCollection(collectionSlug);
     }, [collectionSlug]);
 
-    // Views
     let productItemsView;
     if (!loading) {
         if (productItems && productItems.length > 0) {

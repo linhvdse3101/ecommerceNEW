@@ -28,7 +28,7 @@ const PanelCartMobile = ({ ecomerce }) => {
             <div className="ps-product--cart-mobile" key={item.id}>
                 <div className="ps-product__thumbnail">
                     <Link href="/product/[pid]" as={`/product/${item.id}`}>
-                        <a>{thumbnailImage(item)}</a>
+                        <a>{thumbnailImage(item?.attributes)}</a>
                     </Link>
                 </div>
                 <div className="ps-product__content">

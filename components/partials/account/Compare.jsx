@@ -76,7 +76,7 @@ const Compare = ({ ecomerce }) => {
                                                                 as={`/product/${product.id}`}>
                                                                 <a>
                                                                     {thumbnailImage(
-                                                                        product
+                                                                        product?.attributes
                                                                     )}
                                                                 </a>
                                                             </Link>

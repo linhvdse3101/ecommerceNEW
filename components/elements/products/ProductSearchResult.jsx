@@ -10,7 +10,7 @@ const ProductSearchResult = ({ product }) => {
         <div className="ps-product ps-product--wide ps-product--search-result">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                    <a>{thumbnailImage(product)}</a>
+                    <a>{thumbnailImage(product?.attributes)}</a>
                 </Link>
             </div>
             <div className="ps-product__content">

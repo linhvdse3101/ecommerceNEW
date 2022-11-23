@@ -16,7 +16,7 @@ export async function getProductsByCollectionHelper(
     if (collectionSlug) {
         products = await CollectionRepository.getProductsByCollectionSlug(
             collectionSlug
-        );
+        );        
     } else {
         const queries = {
             _limit: pageSize,

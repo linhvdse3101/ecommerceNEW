@@ -1,41 +1,41 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
-import { baseUrl } from '~/repositories/Repository';
+import { baseUrl,baseImageUrl } from '~/repositories/Repository';
 import { formatCurrency } from '~/utilities/product-helper';
 import Link from 'next/link';
 
 function getImageURL(source, size) {
     let image, imageURL;
-
-    if (source) {
+    if (source.images.data[0].attributes) {
         if (size && size === 'large') {
-            if (source.formats.large) {
-                image = source.formats.large.url;
+            if (source.images.data[0].attributes.formats.large) {
+                image = source.images.data[0].attributes.formats.large.url;
             } else {
-                image = source.url;
+                image = source.images.data[0].attributes.url;
             }
         } else if (size && size === 'medium') {
-            if (source.formats.medium) {
-                image = source.formats.medium.url;
+            if (source.images.data[0].attributes.formats.medium) {
+                image = source.images.data[0].attributes.formats.medium.url;
             } else {
-                image = source.url;
+                image = source.images.data[0].attributes.url;
             }
         } else if (size && size === 'thumbnail') {
-            if (source.formats.thumbnail) {
-                image = source.formats.source.url;
+            if (source.images.data[0].attributes.formats.thumbnail) {
+                image = source.images.data[0].attributes.formats.thumbnail.url;
             } else {
-                image = source.url;
+                image = source.images.data[0].attributes.url;
             }
         } else if (size && size === 'small') {
-            if (source.formats.small !== undefined) {
-                image = source.formats.small.url;
+            if (source.images.data[0].attributes.formats.small !== undefined) {
+                image = source.images.data[0].attributes.formats.small.url;
             } else {
-                image = source.url;
+                image = source.images.data[0].attributes.url;
             }
         } else {
-            image = source.url;
+            image = source.images.data[0].attributes.url;
         }
-        imageURL = `${baseUrl}${image}`;
+        imageURL = `${baseImageUrl}${image}`;
+
     } else {
         imageURL = `/static/img/undefined-product-thumbnail.jpg`;
     }
@@ -44,15 +44,16 @@ function getImageURL(source, size) {
 
 export default function useProduct() {
     return {
-        thumbnailImage: (payload) => {
+        thumbnailImage: (payload, size) => {
             if (payload) {
-                if (payload.thumbnail) {
+                if (payload.images.data
+                    ) {
                     return (
                         <>
                             <LazyLoad>
                                 <img
-                                    src={getImageURL(payload.thumbnail)}
-                                    alt={getImageURL(payload.thumbnail)}
+                                    src={getImageURL(payload)}
+                                    alt={getImageURL(payload)}
                                 />
                             </LazyLoad>
                         </>
@@ -175,9 +176,10 @@ export default function useProduct() {
             }
             return view;
         },
-        title: (payload) => {
+        title: (payload, id) => {
+            // console.log('payloadtitle', payload);
             let view = (
-                <Link href="/product/[pid]" as={`/product/${payload.id}`}>
+                <Link href="/product/[pid]" as={`/product/${id}`}>
                     <a className="ps-product__title">{payload.title}</a>
                 </Link>
             );

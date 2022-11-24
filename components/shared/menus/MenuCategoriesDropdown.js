@@ -11,7 +11,7 @@ const MenuCategoriesDropdown = () => {
             </div>
             <div className="menu__content">
                 <Menu
-                    source={menuData.product_categories}
+                    source={menuData?.product_categories}
                     className="menu--dropdown"
                 />
             </div>

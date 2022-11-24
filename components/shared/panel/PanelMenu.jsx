@@ -74,10 +74,10 @@ class PanelMenu extends Component {
                                         {megaItem.megaItems.map(
                                             (megaSubItem) => (
                                                 <Menu.Item
-                                                    key={megaSubItem.text}>
-                                                    <Link href={item.url}>
+                                                    key={megaSubItem?.text}>
+                                                    <Link href={item?.url}>
                                                         <a>
-                                                            {megaSubItem.text}
+                                                            {megaSubItem?.text}
                                                         </a>
                                                     </Link>
                                                 </Menu.Item>

@@ -27,8 +27,8 @@ const Market3ProductGroup = ({ categorySlug, banners, links, heading }) => {
             tab1View = productItems.map((item, index) => {
                 if (index < 4) {
                     return (
-                        <div className="col-md-3 col-sm-4 col-6" key={item.id}>
-                            <Product product={item} key={item.id} />
+                        <div className="col-md-3 col-sm-4 col-6" key={item?.id}>
+                            <Product product={item} key={item?.id} />
                         </div>
                     );
                 }
@@ -36,8 +36,8 @@ const Market3ProductGroup = ({ categorySlug, banners, links, heading }) => {
             tab2View = productItems.map((item, index) => {
                 if (index > 1 && index < 6) {
                     return (
-                        <div className="col-md-3 col-sm-4 col-6" key={item.id}>
-                            <Product product={item} key={item.id} />
+                        <div className="col-md-3 col-sm-4 col-6" key={item?.id}>
+                            <Product product={item} key={item?.id} />
                         </div>
                     );
                 }
@@ -45,15 +45,15 @@ const Market3ProductGroup = ({ categorySlug, banners, links, heading }) => {
             tab3View = productItems.map((item, index) => {
                 if (index > 0 && index < 5) {
                     return (
-                        <div className="col-md-3 col-sm-4 col-6" key={item.id}>
-                            <Product product={item} key={item.id} />
+                        <div className="col-md-3 col-sm-4 col-6" key={item?.id}>
+                            <Product product={item} key={item?.id} />
                         </div>
                     );
                 }
             });
             recommendView = productItems.map((item, index) => {
                 if (index > 3 && index < 8) {
-                    return <ProductHorizontal product={item} key={item.id} />;
+                    return <ProductHorizontal product={item} key={item?.id} />;
                 }
             });
             linksView = links.map((item) => (

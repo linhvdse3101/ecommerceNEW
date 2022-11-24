@@ -25,9 +25,9 @@ const PageContainer = ({
     let titleView;
 
     if (title !== '') {
-        titleView = process.env.title + ' | ' + title;
+        titleView = process.env?.title + ' | ' + title;
     } else {
-        titleView = process.env.title + ' | ' + process.env.titleDescription;
+        titleView = process.env?.title + ' | ' + process.env?.titleDescription;
     }
 
     return (

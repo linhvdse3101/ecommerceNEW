@@ -40,7 +40,7 @@ const HomeMarketPlace3Page = () => {
             footer={footer}
             title="Home Marketplace 3">
             <main id="homepage-5">
-                <div className="container">
+                {/* <div className="container">
                     <MartketPlace3Banner />
                     <MarketPlace3SearchTrending />
                     <MarketPlaceDealOfDay collectionSlug="deal-of-the-day" />
@@ -80,7 +80,7 @@ const HomeMarketPlace3Page = () => {
                             }
                         />
                     </div>
-                </div>
+                </div> */}
             </main>
         </PageContainer>
     );

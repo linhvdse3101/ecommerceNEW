@@ -7,7 +7,7 @@ const BannerItem = ({ source }) => {
         return (
             <Link href="/shop">
                 <a>
-                    <img src={`${baseUrl}${source.image.url}`} alt="martfury" />
+                    <img src={`${baseUrl}${source.image}`} alt="martfury" />
                 </a>
             </Link>
         );

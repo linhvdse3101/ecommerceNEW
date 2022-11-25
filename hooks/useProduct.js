@@ -6,35 +6,36 @@ import Link from 'next/link';
 
 function getImageURL(source, size) {
     let image, imageURL;
-    if (source.images.data[0].attributes) {
+    if (source.image) {
         if (size && size === 'large') {
             if (source.images.data[0].attributes.formats.large) {
                 image = source.images.data[0].attributes.formats.large.url;
             } else {
-                image = source.images.data[0].attributes.url;
+                image =source.image;
             }
         } else if (size && size === 'medium') {
             if (source.images.data[0].attributes.formats.medium) {
                 image = source.images.data[0].attributes.formats.medium.url;
             } else {
-                image = source.images.data[0].attributes.url;
+                image =source.image;
             }
         } else if (size && size === 'thumbnail') {
             if (source.images.data[0].attributes.formats.thumbnail) {
                 image = source.images.data[0].attributes.formats.thumbnail.url;
             } else {
-                image = source.images.data[0].attributes.url;
+                image =source.image;
             }
         } else if (size && size === 'small') {
             if (source.images.data[0].attributes.formats.small !== undefined) {
                 image = source.images.data[0].attributes.formats.small.url;
             } else {
-                image = source.images.data[0].attributes.url;
+                image =source.image;
             }
         } else {
-            image = source.images.data[0].attributes.url;
+            image =source.image;
+
         }
-        imageURL = `${baseImageUrl}${image}`;
+        imageURL = `${image}`;
 
     } else {
         imageURL = `/static/img/undefined-product-thumbnail.jpg`;
@@ -46,7 +47,7 @@ export default function useProduct() {
     return {
         thumbnailImage: (payload, size) => {
             if (payload) {
-                if (payload.images.data
+                if (payload.image
                     ) {
                     return (
                         <>

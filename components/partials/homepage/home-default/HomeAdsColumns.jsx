@@ -9,7 +9,6 @@ const HomeAdsColumns = () => {
     const [promotion1, setPromotion1] = useState(null);
     const [promotion2, setPromotion2] = useState(null);
     const [promotion3, setPromotion3] = useState(null);
-
     async function getPromotions() {
         const responseData = await MediaRepository.getPromotionsBySlug(
             'home_fullwidth_promotions'
@@ -31,19 +30,19 @@ const HomeAdsColumns = () => {
                     <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion1 ? promotion1?.image?.data?.attributes : null}
+                            image={promotion1 ? promotion1?.image : null}
                         />
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion2 ? promotion2?.image?.data?.attributes : null}
+                            image={promotion2 ? promotion2?.image : null}
                         />
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion3 ? promotion3?.image?.data?.attributes : null}
+                            image={promotion3 ? promotion3?.image : null}
                         />
                     </div>
                 </div>

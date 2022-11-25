@@ -4,7 +4,7 @@ class MediaRespository {
 
     async getBannersBySlug(payload) {
         // const endPoint = `banners?slug=${payload}`;
-        const endPoint = `banners?slug=${payload}&populate[0]=items&populate[1]=items.image`;
+        const endPoint = `banners?populate[0]=items&filters[slug][$eq]=${payload}`;
         const reponse = await Repository.get(`${baseUrl}/${endPoint}`)
             .then((response) => {
                 if (response.data) {
@@ -21,7 +21,7 @@ class MediaRespository {
     }
 
     async getPromotionsBySlug(payload) {
-        const endPoint = `promotions?slug=${payload}&populate[0]=items&populate[1]=items.image`;
+        const endPoint = `promotions?populate[0]=items&filters[slug][$eq]=${payload}`;
         const reponse = await Repository.get(`${baseUrl}/${endPoint}`)
             .then((response) => {
                 if (response.data) {

@@ -7,7 +7,7 @@ const Promotion = ({ link, image }) => {
         return (
             <Link href={link}>
                 <a className="ps-collection">
-                    <img src={`${baseImageUrl}${image.url}`} alt="martfury" />
+                    <img src={`${image}`} alt="martfury" />
                 </a>
             </Link>
         );

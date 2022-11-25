@@ -33,7 +33,7 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
     async function getTotalRecords(params) {
         const responseData = await ProductRepository.getTotalRecords();
         if (responseData) {
-            setTotal(responseData);
+            setTotal(responseData.meta?.pagination.total);
         }
     }
 

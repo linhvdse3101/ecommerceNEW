@@ -24,7 +24,7 @@ class StoreRepository {
 
     async getStoreBySlug(payload) {
         const reponse = await Repository.get(
-            `${baseStoreURL}/stores?slug=${payload}`
+            `${baseStoreURL}/stores?filters[slug][$eq]=${payload}`
         )
             .then((response) => {
                 if (response.data.length > 0) {
@@ -39,7 +39,7 @@ class StoreRepository {
 
     async getStoreItemsByKeyword(payload) {
         const reponse = await Repository.get(
-            `${baseStoreURL}/posts?title_contains=${payload}`
+            `${baseStoreURL}/posts?filters[title_contains][$eq]=${payload}`
         )
             .then((response) => {
                 return response.data;
@@ -50,7 +50,7 @@ class StoreRepository {
 
     async getPostItemsByCategory(payload) {
         const reponse = await Repository.get(
-            `${baseStoreURL}/posts?title_contains=${payload}`
+            `${baseStoreURL}/posts?filters[title_contains][$eq]=${payload}`
         )
             .then((response) => {
                 return response.data;

@@ -39,6 +39,7 @@ const ProductCategoryScreen = () => {
     useEffect(() => {
         getCategry();
     }, [slug]);
+    console.log('getCategry', category);
 
     const breadCrumb = [
         {

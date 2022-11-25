@@ -27,16 +27,16 @@ const WidgetShopCategories = () => {
     useEffect(() => {
         getCategories();
     }, []);
-
+    // console.log('categories', categories);
     // Views
     let categoriesView;
     if (!loading) {
         if (categories && categories.length > 0) {
             const items = categories.map((item) => (
                 <li
-                    key={item.slug}
-                    className={item.slug === slug ? 'active' : ''}>
-                    <Link href={`/category/${item.slug}`}>{item.name}</Link>
+                    key={item.attributes.slug}
+                    className={item.attributes.slug === slug ? 'active' : ''}>
+                    <Link href={`/category/${item.attributes.slug}`}>{item.attributes.name}</Link>
                 </li>
             ));
             categoriesView = <ul className="ps-list--categories">{items}</ul>;

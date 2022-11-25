@@ -62,7 +62,7 @@ const HomeDefaultBanner = () => {
                     <a
                         className="ps-banner-item--default bg--cover"
                         style={{
-                            backgroundImage: `url(${baseImageUrl}${item.image.data.attributes.url})`,
+                            backgroundImage: `url(${item.image})`,
                         }}
                     />
                 </Link>
@@ -82,11 +82,11 @@ const HomeDefaultBanner = () => {
                 <div className="ps-section__right">
                     <Promotion
                         link="/shop"
-                        image={promotion1 ? promotion1?.image?.data?.attributes : null}
+                        image={promotion1 ? promotion1?.image : null}
                     />
                     <Promotion
                         link="/shop"
-                        image={promotion2 ? promotion2?.image?.data?.attributes : null}
+                        image={promotion2 ? promotion2?.image : null}
                     />
                 </div>
             </div>

@@ -23,9 +23,12 @@ export default function useGetProducts() {
 
         getProductsByCollection: async (payload) => {
             setLoading(true);
+            console.log('payload', payload);
             const responseData = await getProductsByCollectionHelper(payload);
+            console.log('responseData.items', responseData);
+
             if (responseData) {
-                setProductItems(responseData.items.data);
+                setProductItems(responseData.items);
                 setTimeout(
                     function () {
                         setLoading(false);

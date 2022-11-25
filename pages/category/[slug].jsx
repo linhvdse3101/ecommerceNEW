@@ -39,8 +39,6 @@ const ProductCategoryScreen = () => {
     useEffect(() => {
         getCategry();
     }, [slug]);
-    console.log('getCategry', category);
-
     const breadCrumb = [
         {
             text: 'Home',
@@ -59,9 +57,9 @@ const ProductCategoryScreen = () => {
     let productItemsViews;
 
     if (!loading) {
-        if (category && category.products.length > 0) {
+        if (category && category.products.data.length > 0) {
             productItemsViews = (
-                <ProductItems columns={4} products={category.products} />
+                <ProductItems columns={4} products={category.products.data} />
             );
         } else {
             productItemsViews = <p>No Product found</p>;

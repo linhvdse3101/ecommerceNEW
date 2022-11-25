@@ -41,6 +41,7 @@ const BestSaleItems = ({ collectionSlug }) => {
         getProducts();
     }, []);
 
+
     // Views
     let productItemsView;
     if (!loading) {

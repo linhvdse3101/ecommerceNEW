@@ -19,15 +19,22 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
         setPhotoIndex(imageIndex);
         setIsOpen(true);
     };
-
     useEffect(() => {
         let images = [];
-        if (product && product.images.length > 0) {
-            product.images.map((item) => {
-                images.push(`${baseUrl}${item.url}`);
-            });
+        // if (product && product.attributes?.image.length > 0) {
+            // product.images.map((item) => {
+            //     images.push(`${product.attributes.image}`);
+            // });
+            if(product.data){
+                images.push(product.data.attributes?.image);
+            }
+            if(product.attributes){
+                images.push(product.attributes?.image);
+
+            }
+
             setProductImages(images);
-        }
+        // }
         setGallery(galleryCarousel.current);
         setVariant(variantCarousel.current);
     }, [product]);

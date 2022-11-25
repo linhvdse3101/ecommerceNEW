@@ -20,8 +20,8 @@ const WidgetShopBrands = () => {
                 responseData.forEach((brand) => {
                     brandsGroup.push({
                         id: brand.id,
-                        value: brand.slug,
-                        label: brand.name,
+                        value: brand.attributes.slug,
+                        label: brand.attributes.name,
                     });
                 });
             }

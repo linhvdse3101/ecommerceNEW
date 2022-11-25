@@ -24,9 +24,9 @@ export default function useEcomerce() {
                 let queries = '';
                 payload.forEach((item) => {
                     if (queries === '') {
-                        queries = `id_in=${item.id}`;
+                        queries = `filters[id][$eq]=${item.id}`;
                     } else {
-                        queries = queries + `&id_in=${item.id}`;
+                        queries = queries + `&filters[id][$eq]=${item.id}`;
                     }
                 });
                 const responseData = await ProductRepository.getProductsByIds(

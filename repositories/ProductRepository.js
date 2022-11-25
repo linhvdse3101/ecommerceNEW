@@ -14,7 +14,7 @@ class ProductRepository {
 
     async getProducts(params) {
         const reponse = await Repository.get(
-            `${baseUrl}/products?populate[0]=products&${serializeQuery(params)}}`
+            `${baseUrl}/products?populate[0]=products&populate[1]=product_images&${serializeQuery(params)}}`
         )
             .then((response) => {
                 if (response.data.data && response.data.data.length > 0) {
@@ -34,7 +34,7 @@ class ProductRepository {
     async getBrands() {
         const reponse = await Repository.get(`${baseUrl}/brands`)
             .then((response) => {
-                return response.data;
+                return response.data.data;
             })
             .catch((error) => ({ error: JSON.stringify(error) }));
         return reponse;
@@ -59,7 +59,7 @@ class ProductRepository {
     }
 
     async getProductsById(payload) {
-        const reponse = await Repository.get(`${baseUrl}/products/${payload}`)
+        const reponse = await Repository.get(`${baseUrl}/products/${payload}?populate[0]=product_images`)
             .then((response) => {
                 return response.data;
             })
@@ -72,9 +72,9 @@ class ProductRepository {
             `${baseUrl}/product-categories?populate[0]=products&filters[slug][$eq]=${payload}`
         )
             .then((response) => {
-                if (response.data) {
-                    if (response.data.length > 0) {
-                        return response.data[0];
+                if (response.data.data) {
+                    if (response.data.data.length > 0) {
+                        return response.data.data[0].attributes;
                     }
                 } else {
                     return null;
@@ -88,12 +88,12 @@ class ProductRepository {
 
     async getProductsByBrand(payload) {
         const reponse = await Repository.get(
-            `${baseUrl}/brands?filters[slug][$eq]=${payload}`
+            `${baseUrl}/brands?filters[slug][$eq]=${payload}&populate[0]=products`
         )
             .then((response) => {
-                if (response.data) {
-                    if (response.data.length > 0) {
-                        return response.data[0];
+                if (response.data.data) {
+                    if (response.data.data.length > 0) {
+                        return response.data.data[0].attributes;
                     }
                 } else {
                     return null;
@@ -106,7 +106,7 @@ class ProductRepository {
     }
 
     async getProductsByIds(payload) {
-        const endPoint = `${baseUrl}/products?${payload}`;
+        const endPoint = `${baseUrl}/products?${payload}&populate[0]=product_images`;
         const reponse = await Repository.get(endPoint)
             .then((response) => {
                 if (response.data && response.data.length > 0) {

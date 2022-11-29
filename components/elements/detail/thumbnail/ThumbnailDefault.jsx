@@ -21,20 +21,22 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
     };
     useEffect(() => {
         let images = [];
-        // if (product && product.attributes?.image.length > 0) {
-            // product.images.map((item) => {
-            //     images.push(`${product.attributes.image}`);
-            // });
-            if(product.data){
-                images.push(product.data.attributes?.image);
-            }
-            if(product.attributes){
-                images.push(product.attributes?.image);
+        console.log('product', product);
 
-            }
+        if (product && product.product_images.length > 0) {
+            product.product_images.map((item) => {
+                console.log('item', item);
+                images.push(`${item.imageurl}`);
+            });
+            // if(product.data){
+            //     images.push(product.data.attributes?.product_images);
+            // }
+            // if(product.attributes){
+            //     images.push(product.attributes?.product_images);
+            // }
 
             setProductImages(images);
-        // }
+        }
         setGallery(galleryCarousel.current);
         setVariant(variantCarousel.current);
     }, [product]);

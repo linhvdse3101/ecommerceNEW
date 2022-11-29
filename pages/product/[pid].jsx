@@ -22,8 +22,8 @@ const ProductDefaultPage = () => {
     async function getProduct(pid) {
         setLoading(true);
         const responseData = await ProductRepository.getProductsById(pid);
-        if (responseData) {
-            setProduct(responseData);
+        if (responseData.data) {
+            setProduct(responseData.data.attributes);
             setTimeout(
                 function () {
                     setLoading(false);

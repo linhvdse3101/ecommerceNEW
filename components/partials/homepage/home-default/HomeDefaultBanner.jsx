@@ -51,7 +51,6 @@ const HomeDefaultBanner = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
     };
-
     // Views
     let mainCarouselView;
     if (bannerItems) {
@@ -62,7 +61,7 @@ const HomeDefaultBanner = () => {
                     <a
                         className="ps-banner-item--default bg--cover"
                         style={{
-                            backgroundImage: `url(${item.image})`,
+                            backgroundImage: `url(${item.image.data.attributes.url})`,
                         }}
                     />
                 </Link>
@@ -82,11 +81,11 @@ const HomeDefaultBanner = () => {
                 <div className="ps-section__right">
                     <Promotion
                         link="/shop"
-                        image={promotion1 ? promotion1?.image : null}
+                        image={promotion1 ? promotion1?.image.data.attributes.url : null}
                     />
                     <Promotion
                         link="/shop"
-                        image={promotion2 ? promotion2?.image : null}
+                        image={promotion2 ? promotion2?.image.data.attributes.url : null}
                     />
                 </div>
             </div>

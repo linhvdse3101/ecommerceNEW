@@ -6,43 +6,43 @@ const Logo = ({ type }) => {
     if (type === 'autopart') {
         data = {
             url: '/home/autopart',
-            img: 'img/logo-autopart.png',
+            img: 'uploads/logo_c467de82f7.jpg',
         };
     }
     else if (type === 'technology') {
         data = {
             url: '/home/technology',
-            img: 'static/img/logo-technology.png',
+            img: 'uploads/logo_c467de82f7.jpg',
         };
     }
     else if (type === 'technology') {
         data = {
             url: '/home/technology',
-            img: 'static/img/logo-technology.png',
+            img: 'uploads/logo_c467de82f7.jpg',
         };
     }
     else if (type === 'electronic') {
         data = {
             url: '/home/electronic',
-            img: 'static/img/logo-electronic.png',
+            img: 'uploads/logo_c467de82f7.jpg',
         };
     }
     else if (type === 'furniture') {
         data = {
             url: '/home/furniture',
-            img: 'static/img/logo-furniture.png',
+            img: 'uploads/logo_c467de82f7.jpg',
         };
     }
     else if (type === 'organic') {
         data = {
             url: '/home/organic',
-            img: 'static/img/logo-organic.png',
+            img: 'uploads/logo_c467de82f7.jpg',
         };
     }
     else {
         data = {
             url: '/',
-            img: '/static/img/logo_light.png',
+            img: 'http://localhost:1337/uploads/thumbnail_logo_c467de82f7.jpg?width=654&height=318',
         };
     }
     return (

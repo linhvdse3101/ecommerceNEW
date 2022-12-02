@@ -3,7 +3,7 @@ import Repository, { baseUrl, serializeQuery } from './Repository';
 class ProductRepository {
     async getRecords(params) {
         const response = await Repository.get(
-            `${baseUrl}/products?populate[0]=products&${serializeQuery(params)}`
+            `${baseUrl}/products?populate[0]=products&populate[1]=products.product_imgs&${serializeQuery(params)}`
         )
             .then((response) => {
                 return response.data.data;
@@ -14,7 +14,7 @@ class ProductRepository {
 
     async getProducts(params) {
         const reponse = await Repository.get(
-            `${baseUrl}/products?populate[0]=products&populate[1]=product_images&${serializeQuery(params)}}`
+            `${baseUrl}/products?populate[0]=products&populate[1]=products.product_imgs&${serializeQuery(params)}}`
         )
             .then((response) => {
                 if (response.data.data && response.data.data.length > 0) {

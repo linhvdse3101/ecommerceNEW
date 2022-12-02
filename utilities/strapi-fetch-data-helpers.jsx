@@ -16,19 +16,19 @@ export async function getProductsByCollectionHelper(
     if (collectionSlug) {
         products = await CollectionRepository.getProductsByCollectionSlug(
             collectionSlug
-        );        
+        );
     } else {
         const queries = {
             _limit: pageSize,
         };
         products = await ProductRepository.getRecords(queries);
     }
-
-    if (products) {
-        return products;
+    if (products.items) {
+        return products.items;
     } else {
         return null;
     }
+    
 }
 
 export async function getProductsByCategoriesHelper(slug, pageSize = 12) {

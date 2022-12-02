@@ -4,12 +4,11 @@ class CollectionRepository {
 
     async getProductsByCollectionSlug(slug) {
         const response = await Repository.get(
-            `${baseUrl}/collections?populate[0]=products&filters[slug][$eq]=${slug}`
+            `${baseUrl}/collections?populate[0]=products&populate[1]=products.product_imgs&filters[slug][$eq]=${slug}`
         )
             .then((response) => {
                 if (response.data.data && response.data.data.length > 0) {
-                    return { items: response.data.data[0].attributes.products.data
-                    };
+                    return { items: response.data.data[0].attributes.products.data};
                 } else {
                     return null;
                 }
@@ -24,7 +23,7 @@ class CollectionRepository {
 
     async getProductsByCategorySlug(slug) {
         const reponse = await Repository.get(
-            `${baseUrl}/product-categories?populate[0]=products&&filters[slug][$eq]=${slug}`
+            `${baseUrl}/product-categories?populate[0]=products&populate[1]=products.product_imgs&filters[slug][$eq]=${slug}`
         )
             .then((response) => {
                 if (response.data && response.data.length > 0) {

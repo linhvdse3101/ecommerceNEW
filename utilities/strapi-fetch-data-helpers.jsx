@@ -22,9 +22,10 @@ export async function getProductsByCollectionHelper(
             _limit: pageSize,
         };
         products = await ProductRepository.getRecords(queries);
+        // console.log('products', products);
     }
-    if (products.items) {
-        return products.items;
+    if (products) {
+        return products;
     } else {
         return null;
     }

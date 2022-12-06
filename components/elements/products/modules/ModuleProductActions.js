@@ -23,7 +23,6 @@ const ModuleProductActions = ({ product, ecomerce }) => {
         });
         modal.update;
     }
-
     function handleAddItemToCompare(e) {
         e.preventDefault();
         addItem({ id: product.id }, ecomerce.compareItems, 'compare');

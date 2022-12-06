@@ -4,7 +4,7 @@ import { actionTypes, switchDemoPanelSuccess } from './action';
 
 function* switchDemoPanel({ payload }) {
     try {
-        console.log(payload.payload);
+        // console.log(payload.payload);
         yield put(switchDemoPanelSuccess(payload));
     } catch (err) {
         console.log(err);

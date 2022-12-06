@@ -9,6 +9,9 @@ import useProduct from '~/hooks/useProduct';
 
 const ProductDealOfDay = ({ product }) => {
     const { thumbnailImage, badge, title } = useProduct();
+
+    // console.log('product', product);
+
     return (
         <div className="ps-product ps-product--inner">
             <div className="ps-product__thumbnail">
@@ -29,7 +32,7 @@ const ProductDealOfDay = ({ product }) => {
                         <Rating />
                         <span>{product.attributes.review}</span>
                     </div>
-                    <ModuleProductProgressbar product={product.attributes} />
+                    <ModuleProductProgressbar product={product?.attributes} />
                 </div>
             </div>
         </div>

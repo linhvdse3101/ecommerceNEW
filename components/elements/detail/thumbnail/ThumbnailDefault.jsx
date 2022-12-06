@@ -12,6 +12,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
     const [variant, setVariant] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
+    const [sizeImg, setSizeImg] = useState(0);
     const [productImages, setProductImages] = useState([]);
 
     const handleOpenLightbox = (e, imageIndex) => {
@@ -19,22 +20,14 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
         setPhotoIndex(imageIndex);
         setIsOpen(true);
     };
+
     useEffect(() => {
         let images = [];
-        console.log('product', product);
-
-        if (product && product.product_images.length > 0) {
-            product.product_images.map((item) => {
-                console.log('item', item);
-                images.push(`${item.imageurl}`);
+        if (product && product?.attributes?.product_imgs?.data.length > 0) {
+            setSizeImg(product?.attributes?.product_imgs?.data.length);
+            product?.attributes.product_imgs?.data.map((item) => {
+                images.push(`${item.attributes.url}`);
             });
-            // if(product.data){
-            //     images.push(product.data.attributes?.product_images);
-            // }
-            // if(product.attributes){
-            //     images.push(product.attributes?.product_images);
-            // }
-
             setProductImages(images);
         }
         setGallery(galleryCarousel.current);
@@ -55,7 +48,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: sizeImg,
                     dots: false,
                     arrows: false,
                     vertical: false,
@@ -65,7 +58,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: sizeImg,
                     dots: false,
                     arrows: false,
                     vertical: false,
@@ -75,7 +68,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: sizeImg,
                     dots: false,
                     arrows: false,
                     vertical: false,
@@ -88,7 +81,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
     //Views
     let lightboxView, variantCarouselView, imagesView, galleryImagesView;
     if (productImages.length > 0) {
-        imagesView = productImages.map((item) => (
+        imagesView = productImages.map((item, index) => (
             <div className="item" key={item}>
                 <img src={item} alt={item} />
             </div>
@@ -108,7 +101,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
                 ref={(slider) => (variantCarousel.current = slider)}
                 swipeToSlide={true}
                 arrows={false}
-                slidesToShow={3}
+                slidesToShow={productImages.length}
                 vertical={true}
                 infinite={true}
                 focusOnSelect={true}
@@ -124,7 +117,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
                 ref={(slider) => (variantCarousel.current = slider)}
                 swipeToSlide={true}
                 arrows={false}
-                slidesToShow={6}
+                slidesToShow={productImages.length}
                 vertical={false}
                 centered={true}
                 infinite={false}

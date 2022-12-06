@@ -6,7 +6,9 @@ import Link from 'next/link';
 
 function getImageURL(source, size) {
     let image, imageURL;
-    if (source.image) {
+    // console.log('source', source);
+
+    if (source) {
         if (size && size === 'large') {
             if (source.images.data[0].attributes.formats.large) {
                 image = source.images.data[0].attributes.formats.large.url;
@@ -32,7 +34,7 @@ function getImageURL(source, size) {
                 image =source.image;
             }
         } else {
-            image =source.image;
+            image = source[0].attributes.url;
 
         }
         imageURL = `${image}`;
@@ -47,14 +49,14 @@ export default function useProduct() {
     return {
         thumbnailImage: (payload, size) => {
             if (payload) {
-                if (payload.image
+                if (payload.product_imgs
                     ) {
                     return (
                         <>
                             <LazyLoad>
                                 <img
-                                    src={getImageURL(payload)}
-                                    alt={getImageURL(payload)}
+                                    src={getImageURL(payload.product_imgs?.data)}
+                                    alt={getImageURL(payload.product_imgs?.data)}
                                 />
                             </LazyLoad>
                         </>

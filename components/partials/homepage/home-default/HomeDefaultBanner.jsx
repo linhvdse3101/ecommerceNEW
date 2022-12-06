@@ -31,7 +31,6 @@ const HomeDefaultBanner = () => {
             // setPromotion2(responseData[1])
             setPromotion1(getItemBySlug(responseData, 'main_1'));
             setPromotion2(getItemBySlug(responseData, 'main_2'));
-
         }
     }
 
@@ -81,11 +80,11 @@ const HomeDefaultBanner = () => {
                 <div className="ps-section__right">
                     <Promotion
                         link="/shop"
-                        image={promotion1 ? promotion1?.image.data.attributes.url : null}
+                        image={promotion1 ? promotion1.image?.data?.attributes.url : null}
                     />
                     <Promotion
                         link="/shop"
-                        image={promotion2 ? promotion2?.image.data.attributes.url : null}
+                        image={promotion2 ? promotion2.image?.data?.attributes.url : null}
                     />
                 </div>
             </div>

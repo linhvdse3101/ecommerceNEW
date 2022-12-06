@@ -12,8 +12,8 @@ const ProductDetailQuickView = ({ product }) => (
         <div className="ps-product__header">
             <ThumbnailDefault product={product} vertical={false} />
             <div className="ps-product__info">
-                <ModuleDetailTopInformation product={product} />
-                <ModuleProductDetailDescription product={product} />
+                <ModuleDetailTopInformation product={product?.attributes} />
+                <ModuleProductDetailDescription product={product?.attributes} />
                 <ModuleDetailShoppingActions
                     product={product}
                     extended={true}

@@ -14,7 +14,7 @@ class ProductRepository {
 
     async getProducts(params) {
         const reponse = await Repository.get(
-            `${baseUrl}/products?populate[0]=products&populate[1]=products.product_imgs&${serializeQuery(params)}}`
+            `${baseUrl}/products?populate[0]=products&populate[1]=product_imgs&${serializeQuery(params)}}`
         )
             .then((response) => {
                 if (response.data.data && response.data.data.length > 0) {
@@ -59,7 +59,7 @@ class ProductRepository {
     }
 
     async getProductsById(payload) {
-        const reponse = await Repository.get(`${baseUrl}/products/${payload}?populate[0]=product_images`)
+        const reponse = await Repository.get(`${baseUrl}/products/${payload}?populate[0]=product_imgs`)
             .then((response) => {
                 return response.data;
             })
@@ -69,7 +69,7 @@ class ProductRepository {
 
     async getProductsByCategory(payload) {
         const reponse = await Repository.get(
-            `${baseUrl}/product-categories?populate[0]=products&filters[slug][$eq]=${payload}`
+            `${baseUrl}/product-categories?populate[0]=products&populate[1]=products.product_imgs&filters[slug][$eq]=${payload}`
         )
             .then((response) => {
                 if (response.data.data) {
@@ -88,7 +88,7 @@ class ProductRepository {
 
     async getProductsByBrand(payload) {
         const reponse = await Repository.get(
-            `${baseUrl}/brands?filters[slug][$eq]=${payload}&populate[0]=products`
+            `${baseUrl}/brands?filters[slug][$eq]=${payload}&populate[0]=products&populate[1]=products.product_imgs`
         )
             .then((response) => {
                 if (response.data.data) {

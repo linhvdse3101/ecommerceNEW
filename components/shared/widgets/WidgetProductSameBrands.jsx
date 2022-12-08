@@ -13,7 +13,6 @@ const WidgetProductSameBrands = ({ collectionSlug }) => {
         const responseData = await getProductsByCollectionHelper(
             collectionSlug
         );
-        console.log('responseData', responseData.items, 'collectionSlug', collectionSlug);
 
         if (responseData) {
             setProductItems(responseData.items);

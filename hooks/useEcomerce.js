@@ -23,12 +23,13 @@ export default function useEcomerce() {
             if (payload && payload.length > 0) {
                 let queries = '';
                 payload.forEach((item) => {
-                    if (queries === '') {
+                    if (queries === '' && item?.id) {
                         queries = `filters[id][$eq]=${item.id}`;
                     } else {
                         queries = queries + `&filters[id][$eq]=${item.id}`;
                     }
                 });
+
                 const responseData = await ProductRepository.getProductsByIds(
                     queries
                 );
@@ -36,6 +37,7 @@ export default function useEcomerce() {
                     if (group === 'cart') {
                         let cartItems = responseData;
                         payload.forEach((item) => {
+
                             let existItem = cartItems.find(
                                 (val) => val.id === item.id
                             );
@@ -43,7 +45,6 @@ export default function useEcomerce() {
                                 existItem.quantity = item.quantity;
                             }
                         });
-
                         setProducts(cartItems);
                     } else {
                         setProducts(responseData);

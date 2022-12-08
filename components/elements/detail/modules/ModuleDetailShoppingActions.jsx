@@ -12,8 +12,11 @@ const ModuleDetailShoppingActions = ({
     const [quantity, setQuantity] = useState(1);
     const Router = useRouter();
     const { addItem } = useEcomerce();
+
     function handleAddItemToCart(e) {
         e.preventDefault();
+        console.log('product.id: ', product.id, 'quantity: ', quantity, 'ecomerce: ', ecomerce.cartItems );
+
         addItem(
             { id: product.id, quantity: quantity },
             ecomerce.cartItems,

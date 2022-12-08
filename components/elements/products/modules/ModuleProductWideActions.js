@@ -36,7 +36,7 @@ const ModuleProductWideActions = ({ ecomerce, product }) => {
 
     return (
         <div className="ps-product__shopping">
-            {price(product)}
+            {price(product?.attributes)}
             <a
                 className="ps-btn"
                 href="#"

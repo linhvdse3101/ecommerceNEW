@@ -17,7 +17,6 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             getProducts(ecomerce.cartItems, 'cart');
         }
     }, [ecomerce]);
-
     const breadCrumb = [
         {
             text: 'Home',
@@ -27,7 +26,6 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             text: 'Shopping Cart',
         },
     ];
-
     // View
     let contentView;
     if (products) {

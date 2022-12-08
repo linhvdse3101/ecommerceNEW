@@ -24,6 +24,7 @@ const PanelCartMobile = ({ ecomerce }) => {
 
     if (products && products.length > 0) {
         const amount = calculateAmount(products);
+        
         const items = products.map((item) => (
             <div className="ps-product--cart-mobile" key={item.id}>
                 <div className="ps-product__thumbnail">

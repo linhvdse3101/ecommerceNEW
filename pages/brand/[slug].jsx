@@ -58,7 +58,7 @@ const ProductByBrandScreen = () => {
     if (!loading) {
         if (brand && brand.products.data.length > 0) {
             productItemsViews = (
-                <ProductItems columns={4} products={brand.products.data} />
+                <ProductItems columns={4} products={brand?.products.data} />
             );
         } else {
             productItemsViews = <p>No Product found</p>;
@@ -66,7 +66,7 @@ const ProductByBrandScreen = () => {
     } else {
         productItemsViews = <p>Loading...</p>;
     }
-
+    // console.log('brandbrandbrandbrand', brand.products.data);
     return (
         <PageContainer
             footer={<FooterDefault />}

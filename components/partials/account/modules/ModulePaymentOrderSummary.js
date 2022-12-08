@@ -12,7 +12,6 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
             getProducts(ecomerce.cartItems, 'cart');
         }
     }, [ecomerce]);
-
     // view
     let listItemsView, shippingView, totalView;
     let amount;
@@ -23,9 +22,9 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
                 <a>
                     <strong>
                         {item.title}
-                        <span>x{item.quantity}</span>
+                        <span>x{item?.quantity}</span>
                     </strong>
-                    <small>${item.quantity * item.price}</small>
+                    <small>${item.quantity * item?.attributes.price}</small>
                 </a>
             </Link>
         ));
@@ -72,7 +71,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
                 <figure>
                     <figcaption>
                         <strong>Subtotal</strong>
-                        <small>${amount}</small>
+                        <small>{amount}</small>
                     </figcaption>
                 </figure>
                 {shippingView}

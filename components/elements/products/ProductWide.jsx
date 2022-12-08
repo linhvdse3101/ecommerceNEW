@@ -10,16 +10,16 @@ const ProductWide = ({ product }) => {
         <div className="ps-product ps-product--wide">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                    <a>{thumbnailImage(product?.attributes?.attributes)}</a>
+                    <a>{thumbnailImage(product?.attributes)}</a>
                 </Link>
             </div>
             <div className="ps-product__container">
                 <div className="ps-product__content">
-                    {title(product)}
+                    {title(product.attributes, product.id)}
                     <p className="ps-product__vendor">
                         Sold by:
                         <Link href="/shop">
-                            <a>{product.vendor}</a>
+                            <a>{product?.attributes.vendor}</a>
                         </Link>
                     </p>
                     <ul className="ps-product__desc">

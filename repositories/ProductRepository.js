@@ -106,11 +106,11 @@ class ProductRepository {
     }
 
     async getProductsByIds(payload) {
-        const endPoint = `${baseUrl}/products?${payload}&populate[0]=product_images`;
+        const endPoint = `${baseUrl}/products?${payload}&populate[0]=product_imgs`;
         const reponse = await Repository.get(endPoint)
             .then((response) => {
-                if (response.data && response.data.length > 0) {
-                    return response.data;
+                if (response.data && response.data.data.length > 0) {
+                    return response.data.data;
                 } else {
                     return null;
                 }

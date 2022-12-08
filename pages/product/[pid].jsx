@@ -23,7 +23,7 @@ const ProductDefaultPage = () => {
         setLoading(true);
         const responseData = await ProductRepository.getProductsById(pid);
         if (responseData.data) {
-            setProduct(responseData.data.attributes);
+            setProduct(responseData.data);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -91,7 +91,8 @@ const ProductDefaultPage = () => {
                         layout="fullwidth"
                         collectionSlug="deal-of-the-day"
                     />
-                    <RelatedProduct collectionSlug="shop-recommend-items" />
+                    {/* <RelatedProduct collectionSlug="shop-recommend-items" /> */}
+                    <RelatedProduct collectionSlug="deal-of-the-day" />
                 </div>
             </div>
             <Newletters />

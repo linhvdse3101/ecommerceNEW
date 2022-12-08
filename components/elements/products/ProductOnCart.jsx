@@ -13,10 +13,10 @@ const ProductOnCart = ({ product, children }) => {
                 </Link>
             </div>
             <div className="ps-product__content">
-                {title(product)}
+                {title(product?.attributes, product?.id)}
                 <p>
                     <small>
-                        ${product.price} x {product.quantity}
+                        ${product?.attributes.price} x {product.quantity}
                     </small>
                 </p>{' '}
                 {children}

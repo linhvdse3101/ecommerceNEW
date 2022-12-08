@@ -180,7 +180,6 @@ export default function useProduct() {
             return view;
         },
         title: (payload, id) => {
-            // console.log('payloadtitle', payload);
             let view = (
                 <Link href="/product/[pid]" as={`/product/${id}`}>
                     <a className="ps-product__title">{payload.title}</a>

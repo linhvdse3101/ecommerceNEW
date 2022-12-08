@@ -10,7 +10,7 @@ const ProductWidgets = () => {
             <WidgetProductFeatures />
             <WidgetSaleOnSite />
             <WidgetShopAds />
-            <WidgetProductSameBrands collectionSlug="shop-same-brand" />
+            <WidgetProductSameBrands collectionSlug="deal-of-the-day" />
         </section>
     );
 };

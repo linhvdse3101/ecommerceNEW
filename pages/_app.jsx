@@ -18,6 +18,8 @@ import '~/scss/organic.scss';
 import '~/scss/technology.scss';
 import '~/scss/autopart.scss';
 import '~/scss/electronic.scss';
+import '~/scss/barcode.scss';
+
 import Head from 'next/head';
 function App({ Component, pageProps }) {
     useEffect(() => {

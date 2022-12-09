@@ -17,8 +17,6 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     
     let productItemsView;
     if (!loading) {
-        // console.log('productItems', productItems?.items);
-
         if (productItems && productItems?.items.length > 0) {
             const slideItems = productItems?.items.map((item) => (
                 <ProductDealOfDay product={item} key={item.id} />

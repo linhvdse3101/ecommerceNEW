@@ -50,9 +50,10 @@ class ProductRepository {
     }
 
     async getTotalRecords() {
-        const reponse = await Repository.get(`${baseUrl}/products/count`)
+        // const reponse = await Repository.get(`${baseUrl}/products/count`)
+        const reponse = await Repository.get(`${baseUrl}/products`)
             .then((response) => {
-                return response.data.data;
+                return response.data;
             })
             .catch((error) => ({ error: JSON.stringify(error) }));
         return reponse;

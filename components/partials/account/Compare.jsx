@@ -86,7 +86,7 @@ const Compare = ({ ecomerce }) => {
                                                                 as={`/product/${product.id}`}>
                                                                 <a className="ps-product__title">
                                                                     {
-                                                                        product.title
+                                                                        product.attributes.title
                                                                     }
                                                                 </a>
                                                             </Link>
@@ -117,15 +117,15 @@ const Compare = ({ ecomerce }) => {
                                         <td className="heading">Price</td>
                                         {products && products.length > 0 ? (
                                             products.map((product) => {
-                                                if (product.sale === true) {
+                                                if (product.attributes.sale === true) {
                                                     return (
                                                         <td key={product.id}>
                                                             <h4 className="price sale">
-                                                                ${product.price}
+                                                                ${product.attributes.price}
                                                                 <del>
                                                                     $
                                                                     {
-                                                                        product.salePrice
+                                                                        product.attributes.salePrice
                                                                     }
                                                                 </del>
                                                             </h4>
@@ -136,7 +136,7 @@ const Compare = ({ ecomerce }) => {
                                                         <td key={product.id}>
                                                             <h4 className="price">
                                                                 ${' '}
-                                                                {product.price}
+                                                                {product.attributes.price}
                                                             </h4>
                                                         </td>
                                                     );
@@ -151,7 +151,7 @@ const Compare = ({ ecomerce }) => {
                                             products.map((product) => (
                                                 <td key={product.id}>
                                                     <Link href="/vendor/store-list">
-                                                        <a>{product.vendor}</a>
+                                                        <a>{product.attributes.vendor}</a>
                                                     </Link>
                                                 </td>
                                             ))

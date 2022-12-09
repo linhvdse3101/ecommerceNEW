@@ -21,7 +21,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
             <Link href="/" key={item.id}>
                 <a>
                     <strong>
-                        {item.title}
+                        {item.attributes.title}
                         <span>x{item?.quantity}</span>
                     </strong>
                     <small>${item.quantity * item?.attributes.price}</small>

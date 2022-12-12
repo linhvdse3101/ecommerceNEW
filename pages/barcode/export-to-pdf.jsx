@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
 
-
-const ExportToPDF = ({ apiData, fileName }) => {
+const ExportToPDF = (prop) => {
+  const {apiData, fileName} = prop
   return (
       <div>
         <div style={{ marginBottom: 10 }}></div>

@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
-// import * as FileSaver from "file-saver";
-// import * as XLSX from "xlsx";
 import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
 
 
-export const ExportToPDF = ({ apiData, fileName }) => {
-  console.log('apiDataapiDataapiData', apiData);
+const ExportToPDF = ({ apiData, fileName }) => {
   return (
       <div>
         <div style={{ marginBottom: 10 }}></div>
@@ -24,3 +21,7 @@ export const ExportToPDF = ({ apiData, fileName }) => {
       </div>
   );
 };
+
+
+export default ExportToPDF;
+

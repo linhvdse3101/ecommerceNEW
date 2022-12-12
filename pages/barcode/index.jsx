@@ -6,7 +6,7 @@ import useGetProducts from '~/hooks/useGetProducts';
 import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
 import ProductRepository from '~/repositories/ProductRepository';
 import useProduct from '~/hooks/useProduct';
-import {ExportToPDF} from './export-to-pdf'
+import  ExportToPDF  from './export-to-pdf';
 
 
 // import '~/scss/barcode.scss';

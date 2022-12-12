@@ -6,6 +6,8 @@ import useGetProducts from '~/hooks/useGetProducts';
 import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
 import ProductRepository from '~/repositories/ProductRepository';
 import useProduct from '~/hooks/useProduct';
+import {ExportToPDF} from './export-to-pdf'
+
 
 // import '~/scss/barcode.scss';
 
@@ -15,7 +17,11 @@ const barcode = () => {
 
     const [bar, setBar] = useState("");
     const [products, setProducts] = useState(null);
+    const [barCode, setBarCode] = useState([]);
+
     let productItemsViews;
+    const fileName = "barcode"
+
 
     async function getTotalRecords() {
         const responseData = await ProductRepository.getTotalRecords();
@@ -33,13 +39,11 @@ const barcode = () => {
     }, [])
 
     if (products && products.length) {
-        console.log('products', products);
         productItemsViews = products.map((item, index) => (
-
-            <div>
+            <div key={item.id}>
                 <h2>{item.attributes.title}</h2>
-                <Barcode key={index} value={item?.attributes.slug
-                    ? item?.attributes.slug : "generate code"} lineColor="black" />
+                <Barcode value={item?.attributes.slug
+                    ? item?.attributes.slug : "generate code"} lineColor="black"  />
             </div>
         ))
     }
@@ -47,8 +51,6 @@ const barcode = () => {
     return (
         <PageContainer title="ldjvit Barcode page">
             <main id="Barcode">
-                {/* <h1 className="textbarcode">ldjvit Barcode create</h1> */}
-                {productItemsViews}
                 <div className="appbarcode">
                     <Barcode value={bar ? bar : "generate code"} lineColor="black" />
                     <input
@@ -58,6 +60,8 @@ const barcode = () => {
                         onChange={handleChange}
                     />
                 </div>
+                <ExportToPDF apiData={productItemsViews} fileName={fileName} />
+
             </main>
         </PageContainer>
 

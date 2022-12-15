@@ -11,14 +11,16 @@ import PartialOffer from './PartialOffer';
 
 class DescriptionBox extends Component {
     constructor(props) {
+        console.log('propspropspropspropsprops', props);
         super(props);
     }
+    
     render() {
         return (
             <div className="ps-product__box">
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="Description" key="1">
-                        <PartialDescription />
+                        <PartialDescription descriptions={props} />
                     </TabPane>
                     <TabPane tab="Specification" key="2">
                         <PartialSpecification />

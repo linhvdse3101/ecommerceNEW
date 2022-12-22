@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 import Lightbox from 'react-image-lightbox';
-import { baseUrl } from '~/repositories/Repository';
+import { baseImageUrl } from '~/repositories/Repository';
 import NextArrow from '~/components/elements/carousel/NextArrow';
 import PrevArrow from '~/components/elements/carousel/PrevArrow';
 
@@ -23,11 +23,15 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
 
     useEffect(() => {
         let images = [];
-        if (product && product?.attributes?.product_imgs?.data.length > 0) {
-            setSizeImg(product?.attributes?.product_imgs?.data.length);
-            product?.attributes.product_imgs?.data.map((item) => {
-                images.push(`${item.attributes.url}`);
-            });
+        if (product) {
+            setSizeImg(4);
+            // product?.attributes.product_imgs?.data.map((item) => {
+            //     images.push(`${item.attributes.url}`);
+            // });
+            for (let i = 1; i <= 4; i++){
+                const url = baseImageUrl+'/'+product?.attributes?.bar_code+'-'+i+'.jpg';
+                images.push(`${url}`);
+            }
             setProductImages(images);
         }
         setGallery(galleryCarousel.current);

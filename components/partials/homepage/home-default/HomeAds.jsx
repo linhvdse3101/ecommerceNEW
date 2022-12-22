@@ -28,13 +28,13 @@ const HomeAds = () => {
                     <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion1 ? promotion1?.image.data.attributes.url : null}
+                            image={promotion1 ? promotion1?.image?.data?.attributes?.url : null}
                         />
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                         <Promotion
                             link="/shop"
-                            image={promotion2 ? promotion2?.image.data.attributes.url : null}
+                            image={promotion2 ? promotion2?.image?.data?.attributes?.url : null}
                         />
                     </div>
                 </div>

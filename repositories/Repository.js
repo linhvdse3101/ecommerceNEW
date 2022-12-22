@@ -6,7 +6,7 @@ export const baseStoreURL = 'https://ljdvitapi.onrender.com/api'; // API for ven
 // const baseDomain = 'http://localhost:1337/api'; // API for products
 // export const basePostUrl = 'http://localhost:1337/api'; // API for post
 // export const baseStoreURL = 'http://localhost:1337/api'; // API for vendor(store)
-
+export const baseImageUrl = 'https://ldjvit-aws-s3-images.s3.amazonaws.com'; // API for vendor(store)
 
 export const customHeaders = {
     Accept: 'application/json',

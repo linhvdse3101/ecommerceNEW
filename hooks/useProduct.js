@@ -3,10 +3,10 @@ import LazyLoad from 'react-lazyload';
 import { baseUrl,baseImageUrl } from '~/repositories/Repository';
 import { formatCurrency } from '~/utilities/product-helper';
 import Link from 'next/link';
+// import { getHash } from 'next/dist/server/image-optimizer';
 
 function getImageURL(source, size) {
     let image, imageURL;
-    // console.log('source', source);
 
     if (source) {
         if (size && size === 'large') {
@@ -35,7 +35,6 @@ function getImageURL(source, size) {
             }
         } else {
             image = source[0].attributes.url;
-
         }
         imageURL = `${image}`;
 
@@ -44,6 +43,11 @@ function getImageURL(source, size) {
     }
     return imageURL;
 }
+
+function getProductImageURL(imageName, index) {
+    return baseImageUrl+'/'+imageName+'-'+index+'.'+'jpg'
+}
+
 
 export default function useProduct() {
     return {
@@ -55,8 +59,8 @@ export default function useProduct() {
                         <>
                             <LazyLoad>
                                 <img
-                                    src={getImageURL(payload.product_imgs?.data)}
-                                    alt={getImageURL(payload.product_imgs?.data)}
+                                    src={getProductImageURL(payload?.bar_code, 1)}
+                                    alt={getProductImageURL(payload?.bar_code, 1)}
                                 />
                             </LazyLoad>
                         </>

@@ -10,7 +10,7 @@ import ProductRepository from '~/repositories/ProductRepository';
 
 export async function getProductsByCollectionHelper(
     collectionSlug,
-    pageSize = 12
+    pageSize = 10
 ) {
     let products;
     if (collectionSlug) {
@@ -19,7 +19,7 @@ export async function getProductsByCollectionHelper(
         );
     } else {
         const queries = {
-            _limit: pageSize,
+            limit: pageSize,
         };
         products = await ProductRepository.getRecords(queries);
         // console.log('products', products);
@@ -32,13 +32,13 @@ export async function getProductsByCollectionHelper(
     
 }
 
-export async function getProductsByCategoriesHelper(slug, pageSize = 12) {
+export async function getProductsByCategoriesHelper(slug, pageSize = 10) {
     let products;
     if (slug) {
         products = await CollectionRepository.getProductsByCategorySlug(slug);
     } else {
         const queries = {
-            _limit: pageSize,
+            limit: pageSize,
         };
         products = await ProductRepository.getRecords(queries);
     }

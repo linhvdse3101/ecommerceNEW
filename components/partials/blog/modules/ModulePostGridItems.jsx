@@ -17,7 +17,7 @@ const ModulePostGridItems = ({ collectionSlug, columns }) => {
             APIPosts = await PostRepository.getPostsByCollectionSlug(queries);
         } else {
             queries = {
-                _limit: 6,
+                limit: 6,
             };
             APIPosts = await PostRepository.getPosts(queries);
         }

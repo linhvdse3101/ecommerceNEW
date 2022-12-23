@@ -7,14 +7,15 @@ const FooterWidgets = () => (
             <h4 className="widget-title">Contact us</h4>
             <div className="widget_content">
                 <p>Call us 24/7</p>
-                <h3>1800 97 97 69</h3>
+                <h3>8038 57 91 99</h3>
                 <p>
-                    502 New Design Str, Melbourne, Australia <br />
-                    <a href="mailto:contact@martfury.co">contact@martfury.co</a>
+                    株式会社エルディー <br />大阪府東大阪市
+                    寿町一丁目9番13号 <br />郵便番号: 522-0201<br />🏡 滋賀県彦根市高宮町2897番地1(2F)<br />
+                    <a href="linhvdse3101@gmail.com">linhvdse3101@gmail.com</a>
                 </p>
                 <ul className="ps-list--social">
                     <li>
-                        <a className="facebook" href="#">
+                        <a className="facebook" href="https://www.facebook.com/but.ong.969">
                             <i className="fa fa-facebook"></i>
                         </a>
                     </li>

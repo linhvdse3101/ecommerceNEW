@@ -33,7 +33,7 @@ const ShopSidebarWithoutBannerPage = () => {
                             <div className="ps-page__header">
                                 <h1>Shop Sidebar</h1>
                             </div>
-                            <ShopItems columns={4} pageSize={12} />
+                            <ShopItems columns={4} pageSize={10} />
                         </div>
                     </div>
                 </div>

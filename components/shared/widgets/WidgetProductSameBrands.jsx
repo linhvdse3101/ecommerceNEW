@@ -32,7 +32,7 @@ const WidgetProductSameBrands = ({ collectionSlug }) => {
     let productItemsView;
     if (!loading) {
         if (productItems && productItems.length > 0) {
-            productItemsView = productItems.map((item) => (
+            productItemsView = productItems.filter((data,index)=>index< 3).map((item) => (
                 <Product product={item} key={item.id} />
             ));
         } else {

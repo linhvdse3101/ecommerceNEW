@@ -9,7 +9,7 @@ const WidgetBlogRecentPosts = () => {
     async function getPosts() {
         let queries, responseData;
         queries = {
-            _limit: 4,
+            limit: 4,
         };
         responseData = await PostRepository.getPosts(queries);
 

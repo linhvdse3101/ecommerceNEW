@@ -41,7 +41,7 @@ const ShopSidebarPage = () => {
                                     collectionSlug="shop-best-seller-items"
                                     title="Best Sale Items"
                                 />
-                                <ShopItems columns={4} pageSize={12} />
+                                <ShopItems columns={4} pageSize={10} />
                             </div>
                         </div>
                     </div>

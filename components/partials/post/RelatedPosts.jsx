@@ -9,7 +9,7 @@ const RelatedPosts = () => {
     async function getPosts() {
         let queries, APIPosts;
         queries = {
-            _limit: 4,
+            limit: 4,
         };
         APIPosts = await PostRepository.getPosts(queries);
         if (APIPosts) {

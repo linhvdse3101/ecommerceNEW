@@ -36,7 +36,7 @@ const ShopFullwidthPage = () => {
                         collectionSlug="shop-recommend-items"
                         title="Recommended Items"
                     />
-                    <ShopItems columns={6} pageSize={18} />
+                    <ShopItems columns={6} pageSize={10} />
                 </div>
             </div>
             <Newletters />

@@ -56,7 +56,7 @@ export default function useGetProducts() {
                 responseData = await ProductRepository.getProducts(payload);
             } else {
                 const queries = {
-                    _limit: 12,
+                    limit: 10,
                 };
                 responseData = await ProductRepository.getProducts(queries);
             }

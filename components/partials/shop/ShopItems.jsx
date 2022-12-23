@@ -9,7 +9,7 @@ import { generateTempArray } from '~/utilities/common-helpers';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import useGetProducts from '~/hooks/useGetProducts';
 
-const ShopItems = ({ columns = 4, pageSize = 12 }) => {
+const ShopItems = ({ columns = 4, pageSize = 10 }) => {
     const Router = useRouter();
     const { page } = Router.query;
     const { query } = Router;
@@ -62,16 +62,17 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
         if (query) {
             if (query.page) {
                 params = {
-                    _start: page * pageSize,
-                    _limit: pageSize,
+                    // _start: page * pageSize,
+                    start: page,
+                    limit: pageSize,
                 };
             } else {
                 params = query;
-                params._limit = pageSize;
+                params.limit = pageSize;
             }
         } else {
             params = {
-                _limit: pageSize,
+                limit: pageSize,
             };
         }
         getTotalRecords();

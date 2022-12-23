@@ -143,11 +143,11 @@ class MyAccount extends Component {
                                 </ul>
                             </figure>
                             <div className="ps-section__coupon">
-                                <span>$25</span>
+                                <span>¥25</span>
                                 <aside>
                                     <h5>A small gift for your first purchase</h5>
                                     <p>
-                                        Martfury give $25 as a small gift for your first purchase.
+                                        Martfury give ¥25 as a small gift for your first purchase.
                                         Welcome to Martfury!
                                     </p>
                                 </aside>

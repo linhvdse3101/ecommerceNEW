@@ -104,7 +104,7 @@ const SearchHeader = () => {
             setLoading(true);
             if (keyword) {
                 const queries = {
-                    _limit: 5,
+                    limit: 5,
                     title_contains: keyword,
                 };
                 const products = ProductRepository.getRecords(queries);

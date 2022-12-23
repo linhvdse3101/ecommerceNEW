@@ -100,9 +100,9 @@ const VendorDashboard = () => (
                                                 Wireless Bluetooth Spe...
                                             </a>
                                         </td>
-                                        <td>$235.35</td>
+                                        <td>¥235.35</td>
                                         <td>25</td>
-                                        <td>$2940.00</td>
+                                        <td>¥2940.00</td>
                                         <td>24.5%</td>
                                     </tr>
                                     <tr>
@@ -113,7 +113,7 @@ const VendorDashboard = () => (
                                                 Backpack
                                             </a>
                                         </td>
-                                        <td>$42.35</td>
+                                        <td>¥42.35</td>
                                         <td>10</td>
                                         <td>$211.00</td>
                                         <td>17.5%</td>

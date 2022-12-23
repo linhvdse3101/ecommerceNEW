@@ -8,7 +8,7 @@ import useGetProducts from '~/hooks/useGetProducts';
 import { useRouter } from 'next/router';
 
 const SearchPage = () => {
-    const [pageSize] = useState(100);
+    const [pageSize] = useState(10);
     const [keyword, setKeyword] = useState('');
     const { productItems, loading, getProducts } = useGetProducts();
     const Router = useRouter();
@@ -26,7 +26,7 @@ const SearchPage = () => {
         if (query && query.keyword) {
             handleSetKeyword(query.keyword);
             const queries = {
-                _limit: pageSize,
+                limit: pageSize,
                 title_contains: query.keyword,
             };
             getProducts(queries);

@@ -8,7 +8,7 @@ import { generateTempArray } from '~/utilities/common-helpers';
 const ProductGroupGridItems = ({
     collectionSlug,
     columns = 3,
-    pageSize = 12,
+    pageSize = 10,
 }) => {
     const [loading, setLoading] = useState(true);
     const [productItems, setProductItems] = useState(null);
@@ -24,7 +24,7 @@ const ProductGroupGridItems = ({
             );
         } else {
             queries = {
-                _limit: pageSize,
+                limit: pageSize,
             };
             SPProducts = await ProductRepository.getProducts(queries);
         }

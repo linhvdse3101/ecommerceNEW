@@ -13,14 +13,15 @@ export async function getProductsByCollectionHelper(
     pageSize = 10
 ) {
     let products;
+    const queries = {
+        limit: pageSize,
+    };
     if (collectionSlug) {
         products = await CollectionRepository.getProductsByCollectionSlug(
-            collectionSlug
+            collectionSlug,queries
         );
     } else {
-        const queries = {
-            limit: pageSize,
-        };
+
         products = await ProductRepository.getRecords(queries);
         // console.log('products', products);
     }
@@ -34,8 +35,11 @@ export async function getProductsByCollectionHelper(
 
 export async function getProductsByCategoriesHelper(slug, pageSize = 10) {
     let products;
+    let query = {
+        limit: pageSize
+    }
     if (slug) {
-        products = await CollectionRepository.getProductsByCategorySlug(slug);
+        products = await CollectionRepository.getProductsByCategorySlug(slug, queries);
     } else {
         const queries = {
             limit: pageSize,

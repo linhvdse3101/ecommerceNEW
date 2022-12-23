@@ -9,18 +9,23 @@ const ProductGroupGridItems = ({
     collectionSlug,
     columns = 3,
     pageSize = 10,
+    start = 0
 }) => {
     const [loading, setLoading] = useState(true);
     const [productItems, setProductItems] = useState(null);
+    const [total, setTotal] = useState(0);
     const [classes, setClasses] = useState(
         'col-xl-4 col-lg-4 col-md-3 col-sm-6 col-6'
     );
-
+    const query = {
+        limit: pageSize,
+        start : start
+    }
     async function getProduct() {
         let queries, SPProducts;
         if (collectionSlug !== undefined) {
             SPProducts = await CollectionRepository.getProductsByCollectionSlug(
-                collectionSlug
+                collectionSlug,query
             );
         } else {
             queries = {
@@ -66,14 +71,15 @@ const ProductGroupGridItems = ({
     useEffect(() => {
         getProduct();
         handleSetColumns();
-    }, [columns, collectionSlug, pageSize]);
+        setTotal(productItems?.items.length);
+    }, [columns, collectionSlug, pageSize, start]);
 
     // Views
     let productItemsView;
 
     if (!loading && productItems) {
         if (productItems.length > 0) {
-            const items = productItems.map((item) => {
+            const items = productItems?.items.map((item) => {
                 return (
                     <div className={classes} key={item.id}>
                         <Product product={item} />

@@ -8,12 +8,12 @@ const NewArrivals = ({ collectionSlug }) => {
     useEffect(() => {
         getProductsByCollection(collectionSlug);
     }, [collectionSlug]);
-
+    // console.log("productItemsproductItems",productItems);
     // Views
     let productItemView;
     if (!loading) {
-        if (productItems && productItems.length > 0) {
-            productItemView = productItems.map((item) => (
+        if (productItems && productItems?.items.length > 0) {
+            productItemView = productItems?.items.map((item) => (
                 <div
                     className="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 "
                     key={item.id}>

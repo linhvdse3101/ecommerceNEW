@@ -26,3 +26,12 @@ export const serializeQuery = (query) => {
         )
         .join('&');
 };
+
+export const serializeSearchQuery = (query) => {
+    return Object.keys(query)
+        .map(
+            (key) =>
+                `filters[${encodeURIComponent(key)}.slug][$eq]=${encodeURIComponent(query[key])}`
+        )
+        .join('&');
+};

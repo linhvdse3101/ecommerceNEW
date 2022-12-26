@@ -8,7 +8,7 @@ import { generateTempArray } from '~/utilities/common-helpers';
 const ProductGroupGridItems = ({
     collectionSlug,
     columns = 3,
-    pageSize = 10,
+    pageSize = 12,
     start = 0
 }) => {
     const [loading, setLoading] = useState(true);

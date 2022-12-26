@@ -62,16 +62,16 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
         if (query) {
             if (query.page) {
                 params = {
-                    _start: page * pageSize,
-                    _limit: pageSize,
+                    start: page * pageSize,
+                    limit: pageSize,
                 };
             } else {
                 params = query;
-                params._limit = pageSize;
+                params.limit = pageSize;
             }
         } else {
             params = {
-                _limit: pageSize,
+                limit: pageSize,
             };
         }
         getTotalRecords();

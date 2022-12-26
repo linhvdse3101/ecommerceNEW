@@ -10,7 +10,7 @@ import ProductRepository from '~/repositories/ProductRepository';
 
 export async function getProductsByCollectionHelper(
     collectionSlug,
-    pageSize = 10
+    pageSize = 12
 ) {
     let products;
     let pagination;
@@ -44,7 +44,7 @@ export async function getProductsByCollectionHelper(
 }
 export async function getTotalProductsByCollectionHelper(
     collectionSlug,
-    pageSize = 10
+    pageSize = 12
 ) {
     let pagination = 0;
     const queries = {
@@ -61,7 +61,7 @@ export async function getTotalProductsByCollectionHelper(
     }
     return pagination;
 }
-export async function getProductsByCategoriesHelper(slug, pageSize = 10) {
+export async function getProductsByCategoriesHelper(slug, pageSize = 12) {
     let products;
     let query = {
         limit: pageSize

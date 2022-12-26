@@ -11,7 +11,6 @@ import PartialOffer from './PartialOffer';
 
 class DescriptionBox extends Component {
     constructor(props) {
-        console.log('propspropspropspropsprops', props);
         super(props);
     }
     

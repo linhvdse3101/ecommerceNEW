@@ -66,7 +66,6 @@ const ProductByBrandScreen = () => {
     } else {
         productItemsViews = <p>Loading...</p>;
     }
-    // console.log('brandbrandbrandbrand', brand.products.data);
     return (
         <PageContainer
             footer={<FooterDefault />}

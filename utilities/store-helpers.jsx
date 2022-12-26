@@ -7,7 +7,7 @@
 import React from 'react';
 import StoreRepository from '~/repositories/StoreRepository';
 
-export async function getStoresHelper(pageSize = 10) {
+export async function getStoresHelper(pageSize = 12) {
     let stores;
     const queries = {
         limit: pageSize,

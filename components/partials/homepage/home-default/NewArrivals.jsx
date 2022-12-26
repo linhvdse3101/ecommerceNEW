@@ -7,7 +7,7 @@ import Link from 'next/link';
 import ProductHorizontal from '~/components/elements/products/ProductHorizontal';
 import useGetProducts from '~/hooks/useGetProducts';
 
-const NewArrivals = ({ collectionSlug, pageSize = 10 }) => {
+const NewArrivals = ({ collectionSlug, pageSize = 12 }) => {
     const { productItems, loading, totalMeta ,getProductsByCollection, getTotalProductsByCollection } = useGetProducts();
     const Router = useRouter();
     const { page } = Router.query;
@@ -28,7 +28,7 @@ const NewArrivals = ({ collectionSlug, pageSize = 10 }) => {
     useEffect(() => {
         let params = {
             start: 0,
-            limit: 10
+            limit: 12
         };
         if (query) {
             if (query.page) {

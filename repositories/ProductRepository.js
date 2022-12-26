@@ -22,7 +22,7 @@ class ProductRepository {
                 return meta.pagination.total;
             })
             .catch((error) => ({ error: JSON.stringify(error) }));
-        return response;
+        return 0;
     }
 
     async getRecords(params) {

@@ -8,7 +8,7 @@ import useGetProducts from '~/hooks/useGetProducts';
 import { useRouter } from 'next/router';
 
 const SearchPage = () => {
-    const [pageSize] = useState(10);
+    const [pageSize] = useState(12);
     const [keyword, setKeyword] = useState('');
     const { productItems, loading, getProducts } = useGetProducts();
     const Router = useRouter();

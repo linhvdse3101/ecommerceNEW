@@ -45,7 +45,7 @@ const ShopDefaultPage = () => {
                                 collectionSlug="shop-recommend-items"
                                 title="Recommended Items"
                             />
-                            <ShopItems columns={6} pageSize={10} />
+                            <ShopItems columns={6} pageSize={12} />
                         </div>
                     </div>
                 </div>

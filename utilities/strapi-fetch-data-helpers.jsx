@@ -13,17 +13,27 @@ export async function getProductsByCollectionHelper(
     pageSize = 10
 ) {
     let products;
+    let pagination;
     const queries = {
         limit: pageSize,
     };
+    const param = {
+        collection: collectionSlug,
+    };
     if (collectionSlug) {
-        products = await CollectionRepository.getProductsByCollectionSlug(
-            collectionSlug,queries
+        // products = await CollectionRepository.getProductsByCollectionSlug(
+        //     collectionSlug,queries
+        // );
+        products = await ProductRepository.getProductByCollecionSlug(
+            param,queries
         );
+        pagination = await ProductRepository.getTotalProductByCollecionSlug(
+            param,queries
+        );
+
     } else {
 
         products = await ProductRepository.getRecords(queries);
-        // console.log('products', products);
     }
     if (products) {
         return products;
@@ -32,7 +42,25 @@ export async function getProductsByCollectionHelper(
     }
     
 }
+export async function getTotalProductsByCollectionHelper(
+    collectionSlug,
+    pageSize = 10
+) {
+    let pagination = 0;
+    const queries = {
+        limit: pageSize,
+    };
+    const param = {
+        collection: collectionSlug,
+    };
+    if (collectionSlug) {
+        pagination = await ProductRepository.getTotalProductByCollecionSlug(
+            param,queries
+        );
 
+    }
+    return pagination;
+}
 export async function getProductsByCategoriesHelper(slug, pageSize = 10) {
     let products;
     let query = {

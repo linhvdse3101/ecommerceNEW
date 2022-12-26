@@ -17,8 +17,8 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     
     let productItemsView;
     if (!loading) {
-        if (productItems && productItems?.items.length > 0) {
-            const slideItems = productItems?.items.map((item) => (
+        if (productItems && productItems?.length > 0) {
+            const slideItems = productItems.map((item) => (
                 <ProductDealOfDay product={item} key={item.id} />
             ));
             productItemsView = (
@@ -29,7 +29,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
         } else {
             productItemsView = <p>No product(s) found.</p>;
         }
-        // console.log('productItems', productItems);
+        console.log('productItems', productItems);
     } else {
         const skeletons = generateTempArray(6).map((item) => (
             <div className="col-xl-2 col-lg-3 col-sm-3 col-6" key={item}>

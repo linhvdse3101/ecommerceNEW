@@ -1,19 +1,64 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Pagination } from 'antd';
+import { useRouter } from 'next/router';
+// import { useHistory } from "react-router-dom";
+
 import Link from 'next/link';
 import ProductHorizontal from '~/components/elements/products/ProductHorizontal';
 import useGetProducts from '~/hooks/useGetProducts';
 
-const NewArrivals = ({ collectionSlug }) => {
-    const { productItems, loading, getProductsByCollection } = useGetProducts();
+const NewArrivals = ({ collectionSlug, pageSize = 10 }) => {
+    const { productItems, loading, totalMeta ,getProductsByCollection, getTotalProductsByCollection } = useGetProducts();
+    const Router = useRouter();
+    const { page } = Router.query;
+    const { query } = Router;
+    const [total, setTotal] = useState(0);
+    
+    function getTotalRecords() {
+        setTotal(totalMeta);
+    }
+    function handlePagination(e) {
+        console.log('Router', Router.pathname);
+        console.log('query', Router.query);
+        console.log('asPath', Router.asPath);
+        // Router.push(`/?page=${e}`);
+
+
+    }
     useEffect(() => {
-        getProductsByCollection(collectionSlug);
-    }, [collectionSlug]);
-    // console.log("productItemsproductItems",productItems);
+        let params = {
+            start: 0,
+            limit: 10
+        };
+        if (query) {
+            if (query.page) {
+                params = {
+                    // _start: page * pageSize,
+                    start: page,
+                    limit: pageSize,
+                };
+            } else {
+                params = query;
+                params.limit = pageSize;
+            }
+        } else {
+            params = {
+                limit: pageSize,
+                start: 0
+            };
+        }
+        getProductsByCollection(collectionSlug, params);
+        getTotalProductsByCollection(collectionSlug, params)
+        getTotalRecords(totalMeta);
+        // handleSetColumns();
+    }, [collectionSlug, page]);
+
+    // console.log("products",products);
     // Views
     let productItemView;
     if (!loading) {
-        if (productItems && productItems?.items.length > 0) {
-            productItemView = productItems?.items.map((item) => (
+        if (productItems && productItems?.length > 0) {
+            productItemView = productItems?.map((item) => (
                 <div
                     className="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 "
                     key={item.id}>
@@ -65,7 +110,19 @@ const NewArrivals = ({ collectionSlug }) => {
                     </ul>
                 </div>
                 <div className="ps-section__content">
-                    <div className="row">{productItemView}</div>
+                    <div className="row ps-shopping__content">{productItemView}</div>
+                    {/* <div className="ps-shopping__footer text-center">
+                        <div className="ps-pagination">
+                            <Pagination
+                                total={total - 1}
+                                pageSize={pageSize}
+                                responsive={true}
+                                showSizeChanger={false}
+                                current={page !== undefined ? parseInt(page) : 1}
+                                onChange={(e) => handlePagination(e)}
+                            />
+                        </div>
+                    </div> */}
                 </div>
             </div>
         </div>

@@ -53,8 +53,7 @@ export default function useProduct() {
     return {
         thumbnailImage: (payload, size) => {
             if (payload) {
-                if (payload.product_imgs
-                    ) {
+                if (payload) {
                     return (
                         <>
                             <LazyLoad>

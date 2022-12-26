@@ -49,12 +49,12 @@ const HomeDefaultProductListing = ({ collectionSlug, title }) => {
 
     // views
     let productItemsView;
-    console.log('productItemsproductItems', productItems?.items);
+
     if (!loading) {
-        if (productItems && productItems?.items.length > 0) {
+        if (productItems && productItems?.length > 0) {
             productItemsView = (
                 <ProductGroupWithCarousel
-                    products={productItems?.items}
+                    products={productItems}
                     type="fullwidth"
                 />
             );

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
     getProductsByCategoriesHelper,
     getProductsByCollectionHelper,
+    getTotalProductsByCollectionHelper,
 } from '~/utilities/strapi-fetch-data-helpers';
 import ProductRepository from '~/repositories/ProductRepository';
 
@@ -9,10 +10,18 @@ export default function useGetProducts() {
     const [loading, setLoading] = useState(false);
     const [productItems, setProductItems] = useState(null);
     const [product, setProduct] = useState(null);
+    const meta = {
+        limit: 10,
+        start: 0,
+        total: 0
+    }
+    const [totalMeta, setTotalMeta] = useState(0);
+
     return {
         loading,
         productItems,
         product,
+        totalMeta,
         setProductItems: (payload) => {
             setProductItems(payload);
         },
@@ -33,6 +42,11 @@ export default function useGetProducts() {
                     250
                 );
             }
+        },
+        getTotalProductsByCollection: async (payload) => {
+            setLoading(true);
+            const responseData = await getTotalProductsByCollectionHelper(payload);
+            setTotalMeta(responseData == null ? 0 : responseData);
         },
 
         getProductsByCategory: async (payload) => {

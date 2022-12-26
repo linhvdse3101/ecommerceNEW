@@ -1,6 +1,30 @@
-import Repository, { baseUrl, serializeQuery } from './Repository';
+import Repository, { baseUrl, serializeQuery, serializeSearchQuery } from './Repository';
 
 class ProductRepository {
+
+    async getProductByCollecionSlug(params, query) {
+        const response = await Repository.get(
+            `${baseUrl}/products?populate[0]=products&products.${serializeSearchQuery(params)}&${serializeQuery(query)}`
+        )
+            .then((response) => {
+                return response.data.data;
+            })
+            .catch((error) => ({ error: JSON.stringify(error) }));
+        return response;
+    }
+
+    async getTotalProductByCollecionSlug(params, query) {
+        const response = await Repository.get(
+            `${baseUrl}/products?populate[0]=products&products.${serializeSearchQuery(params)}&${serializeQuery(query)}`
+        )
+            .then((response) => {
+                const {data, meta} = response.data
+                return meta.pagination.total;
+            })
+            .catch((error) => ({ error: JSON.stringify(error) }));
+        return response;
+    }
+
     async getRecords(params) {
         const response = await Repository.get(
             `${baseUrl}/products?populate[0]=products&${serializeQuery(params)}`

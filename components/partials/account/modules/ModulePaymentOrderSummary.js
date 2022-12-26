@@ -24,7 +24,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
                         {item.attributes.title}
                         <span>x{item?.quantity}</span>
                     </strong>
-                    <small>${item.quantity * item?.attributes.price}</small>
+                    <small>¥{item.quantity * item?.attributes.price}</small>
                 </a>
             </Link>
         ));
@@ -34,17 +34,17 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
     if (shipping === true) {
         shippingView = (
             <figure>
-                <figcaption>
+                {/* <figcaption>
                     <strong>Shipping Fee</strong>
-                    <small>$20.00</small>
-                </figcaption>
+                    <small>¥20.00</small>
+                </figcaption> */}
             </figure>
         );
         totalView = (
             <figure className="ps-block__total">
                 <h3>
                     Total
-                    <strong>${parseInt(amount) + 20}.00</strong>
+                    <strong>¥{parseInt(amount) + 20}.00</strong>
                 </h3>
             </figure>
         );
@@ -53,7 +53,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
             <figure className="ps-block__total">
                 <h3>
                     Total
-                    <strong>${parseInt(amount)}.00</strong>
+                    <strong>¥{parseInt(amount)}.00</strong>
                 </h3>
             </figure>
         );

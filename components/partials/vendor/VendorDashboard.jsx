@@ -115,7 +115,7 @@ const VendorDashboard = () => (
                                         </td>
                                         <td>¥42.35</td>
                                         <td>10</td>
-                                        <td>$211.00</td>
+                                        <td>¥211.00</td>
                                         <td>17.5%</td>
                                     </tr>
                                     <tr>
@@ -126,9 +126,9 @@ const VendorDashboard = () => (
                                                 T-Shirt
                                             </a>
                                         </td>
-                                        <td>$23.35</td>
+                                        <td>¥23.35</td>
                                         <td>80</td>
-                                        <td>$935.00</td>
+                                        <td>¥935.00</td>
                                         <td>62.5%</td>
                                     </tr>
                                     <tr>
@@ -138,9 +138,9 @@ const VendorDashboard = () => (
                                                 Harman Kardon Onyx Studio 2.0
                                             </a>
                                         </td>
-                                        <td>$299.35</td>
+                                        <td>¥299.35</td>
                                         <td>14</td>
-                                        <td>$2095.00</td>
+                                        <td>¥2095.00</td>
                                         <td>62.5%</td>
                                     </tr>
                                     <tr>
@@ -151,9 +151,9 @@ const VendorDashboard = () => (
                                                 Navy Color
                                             </a>
                                         </td>
-                                        <td>$299.35</td>
+                                        <td>¥299.35</td>
                                         <td>5</td>
-                                        <td>$6095.00</td>
+                                        <td>¥6095.00</td>
                                         <td>62.5%</td>
                                     </tr>
                                     <tr>
@@ -164,7 +164,7 @@ const VendorDashboard = () => (
                                             <strong>124 Sale</strong>
                                         </td>
                                         <td colSpan="2">
-                                            <strong>$12.104.725</strong>
+                                            <strong>¥12.104.725</strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -195,8 +195,8 @@ const VendorDashboard = () => (
                                         <td>
                                             <a href="#">MS46891357</a>
                                         </td>
-                                        <td>$00.00</td>
-                                        <td>$295.47</td>
+                                        <td>¥00.00</td>
+                                        <td>¥295.47</td>
                                         <td>
                                             <a href="#">Open</a>
                                         </td>
@@ -209,8 +209,8 @@ const VendorDashboard = () => (
                                         <td>
                                             <a href="#">AP47305441</a>
                                         </td>
-                                        <td>$00.00</td>
-                                        <td>$25.47</td>
+                                        <td>¥00.00</td>
+                                        <td>¥25.47</td>
                                         <td>Close</td>
                                         <td>
                                             <a href="#">View Detail</a>

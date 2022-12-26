@@ -135,7 +135,7 @@ const Compare = ({ ecomerce }) => {
                                                     return (
                                                         <td key={product.id}>
                                                             <h4 className="price">
-                                                                ${' '}
+                                                            ¥{' '}
                                                                 {product.attributes.price}
                                                             </h4>
                                                         </td>

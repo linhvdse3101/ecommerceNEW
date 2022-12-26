@@ -29,7 +29,7 @@ const WidgetShopFilterByPriceRange = () => {
                     onAfterChange={(e) => handleChangeRange(e)}
                 />
                 <p>
-                    Price: ${min} - $ {max}
+                    Price: ¥{min} - ¥{max}
                 </p>
             </figure>
         </aside>

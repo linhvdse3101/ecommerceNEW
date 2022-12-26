@@ -170,7 +170,7 @@ class InvoiceDetail extends Component {
                                                                     />
                                                                 </td>
                                                                 <td className="price">
-                                                                    $
+                                                                ¥
                                                                     {
                                                                         product.price
                                                                     }
@@ -178,7 +178,7 @@ class InvoiceDetail extends Component {
 
                                                                 <td>1</td>
                                                                 <td className="price">
-                                                                    $
+                                                                ¥
                                                                     {
                                                                         product.price
                                                                     }

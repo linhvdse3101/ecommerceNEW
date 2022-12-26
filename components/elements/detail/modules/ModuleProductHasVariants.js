@@ -206,17 +206,17 @@ const ModuleProductHasVariants = ({ ecomerce, currency, product }) => {
                 priceArea = (
                     <h4 className="ps-product__price sale">
                         <del className="mr-2">
-                            {currency ? currency.symbol : '$'}
+                            {currency ? currency.symbol : '¥'}
                             {product.sale_price}
                         </del>
-                        {currency ? currency.symbol : '$'}
+                        {currency ? currency.symbol : '¥'}
                         {product.price}
                     </h4>
                 );
             } else {
                 priceArea = (
                     <h4 className="ps-product__price">
-                        {currency ? currency.symbol : '$'}
+                        {currency ? currency.symbol : '¥'}
                         {product.price}
                     </h4>
                 );
